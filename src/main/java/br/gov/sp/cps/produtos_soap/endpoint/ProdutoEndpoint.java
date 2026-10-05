@@ -26,19 +26,19 @@ public class ProdutoEndpoint {
             response.setMarca("Danone");
             response.setQuantidade(5);
 
-        } if (request.getCodigo() == 2) {
+        } else if (request.getCodigo() == 2) {
         	 response.setNome("Iogurte");
              response.setDescricao("Sabor Salada de Frutas"  );
              response.setMarca("Danone");
              response.setQuantidade(9);
         	
-        } if (request.getCodigo() == 3) {
+        } else if (request.getCodigo() == 3) {
        	 response.setNome("Barra de Chocolate");
          response.setDescricao("Amargo"  );
          response.setMarca("Nestle");
          response.setQuantidade(16);
     	
-        } if (request.getCodigo() == 4) {
+        } else if (request.getCodigo() == 4) {
         	response.setNome("Refrigerante");
         	response.setDescricao("Sabor Cola"  );
         	response.setMarca("Coca Cola");
