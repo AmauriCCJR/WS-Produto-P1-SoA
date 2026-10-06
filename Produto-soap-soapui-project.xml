@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="98cffc4a-7d26-4191-b5ae-ef517cc43b3e" activeEnvironment="Default" name="Produto-soap" resourceRoot="" soapui-version="5.10.0" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="bedae784-8261-4352-a858-b132cee7736e" wsaVersion="NONE" name="ProdutosPortSoap11" type="wsdl" bindingName="{http://cps.edu.br/produtos}ProdutosPortSoap11" soapVersion="1_1" anonymous="optional" definition="http://localhost:8081/ws/produtos.wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://localhost:8081/ws/produtos.wsdl"><con:part><con:url>http://localhost:8081/ws/produtos.wsdl</con:url><con:content><![CDATA[<wsdl:definitions targetNamespace="http://cps.edu.br/produtos" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:sch="http://cps.sp.gov.br/produtos" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://cps.edu.br/produtos">
+  <wsdl:types>
+    <xs:schema elementFormDefault="qualified" targetNamespace="http://cps.sp.gov.br/produtos" xmlns:tns="http://cps.sp.gov.br/produtos" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <!--REQUISIÇÃO-->
+      <xs:element name="consultarProdutoRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="codigo" type="xs:int"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <!--RESPOSTA-->
+      <xs:element name="consultarProdutoResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="nome" type="xs:string"/>
+            <xs:element name="descricao" type="xs:string"/>
+            <xs:element name="marca" type="xs:string"/>
+            <xs:element name="quantidade" type="xs:integer"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="consultarProdutoRequest">
+    <wsdl:part element="sch:consultarProdutoRequest" name="consultarProdutoRequest"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="consultarProdutoResponse">
+    <wsdl:part element="sch:consultarProdutoResponse" name="consultarProdutoResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="ProdutosPort">
+    <wsdl:operation name="consultarProduto">
+      <wsdl:input message="tns:consultarProdutoRequest" name="consultarProdutoRequest"></wsdl:input>
+      <wsdl:output message="tns:consultarProdutoResponse" name="consultarProdutoResponse"></wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ProdutosPortSoap11" type="tns:ProdutosPort">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="consultarProduto">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="consultarProdutoRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="consultarProdutoResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ProdutosPortService">
+    <wsdl:port binding="tns:ProdutosPortSoap11" name="ProdutosPortSoap11">
+      <soap:address location="http://localhost:8081/ws"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://localhost:8081/ws</con:endpoint></con:endpoints><con:operation id="b422e863-4572-49a3-9a54-613bf156b35e" isOneWay="false" action="" name="consultarProduto" bindingOperationName="consultarProduto" type="Request-Response" outputName="consultarProdutoResponse" inputName="consultarProdutoRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="f98a2426-e231-4129-981f-7f4471aa3da6" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8081/ws</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:prod="http://cps.sp.gov.br/produtos">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <prod:consultarProdutoRequest>\r
+         <prod:codigo>5</prod:codigo>\r
+      </prod:consultarProdutoRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://cps.edu.br/produtos/ProdutosPort/consultarProdutoRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/></con:soapui-project>
