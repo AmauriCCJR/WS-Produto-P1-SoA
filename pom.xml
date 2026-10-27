@@ -47,6 +47,11 @@
     		<version>1.6.3</version>
 		</dependency>
 		
+		<dependency>
+			<groupId>org.springframework.ws</groupId>
+			<artifactId>spring-ws-security</artifactId>
+		</dependency>
+		
 	</dependencies>
 
 	<build>
@@ -85,8 +90,27 @@
         </packageName>
 
     </configuration>
-</plugin>
-			
+	</plugin>
+			<plugin>
+				<groupId>org.jvnet.jaxb</groupId>
+				<artifactId>jaxb-maven-plugin</artifactId>
+				<version>4.0.9</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>generate</goal>
+						</goals>
+					</execution>
+				</executions>
+				
+				<configuration>
+					<schemaDirectory>src/main/resources/</schemaDirectory>
+					<schemaIncludes>
+						<include>produtos.xsd</include>
+					</schemaIncludes>
+					<generatePackage>br.gov.sp.cps.produtos_soap.schema</generatePackage>
+				</configuration>
+			</plugin>
 		</plugins>
 	</build>
 

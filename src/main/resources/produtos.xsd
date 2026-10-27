@@ -22,7 +22,7 @@
                 <xs:element name="nome" type="xs:string"/>
                 <xs:element name="descricao" type="xs:string"/>
                 <xs:element name="marca" type="xs:string"/>
-                <xs:element name="quantidade" type="xs:integer"/>
+                <xs:element name="quantidade" type="xs:string"/>
             </xs:sequence>
         </xs:complexType>
     </xs:element>
